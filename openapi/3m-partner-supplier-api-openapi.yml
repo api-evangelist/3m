@@ -1,0 +1,152 @@
+openapi: 3.1.0
+info:
+  title: 3M Partner and Supplier API
+  description: >-
+    The 3M Partner and Supplier API provides real-time access to 3M product,
+    pricing, order, delivery, and invoice data for partners and suppliers.
+    The API supports GET and POST operations for product/price lookups,
+    order and delivery tracking, and invoice status queries.
+  version: '1.0'
+servers:
+  - url: https://api.3m.com
+tags:
+  - name: Products
+    description: Retrieve product and pricing information.
+  - name: Orders
+    description: Submit and track orders.
+  - name: Deliveries
+    description: Track delivery status and logistics.
+  - name: Invoices
+    description: Retrieve invoice status and details.
+paths:
+  /products:
+    get:
+      operationId: listProducts
+      summary: List products
+      description: >-
+        Retrieves a list of 3M products available to partners and suppliers
+        with pricing and availability information.
+      tags:
+        - Products
+      parameters:
+        - name: category
+          in: query
+          description: Filter products by category.
+          schema:
+            type: string
+        - name: sku
+          in: query
+          description: Filter by specific SKU.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /products/{productId}/price:
+    get:
+      operationId: getProductPrice
+      summary: Get product price
+      description: >-
+        Retrieves the current pricing information for a specific 3M product
+        based on the partner agreement.
+      tags:
+        - Products
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          description: The unique product identifier.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /orders:
+    get:
+      operationId: listOrders
+      summary: List orders
+      description: >-
+        Retrieves a list of orders placed by the authenticated partner
+        or supplier with status and tracking information.
+      tags:
+        - Orders
+      responses:
+        '200':
+          description: Success
+    post:
+      operationId: createOrder
+      summary: Create an order
+      description: >-
+        Submits a new order for 3M products on behalf of the authenticated
+        partner or supplier.
+      tags:
+        - Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      productId:
+                        type: string
+                      quantity:
+                        type: integer
+                shippingAddress:
+                  type: string
+      responses:
+        '201':
+          description: Order created successfully
+  /deliveries:
+    get:
+      operationId: listDeliveries
+      summary: List deliveries
+      description: >-
+        Retrieves delivery tracking information for orders placed by
+        the authenticated partner or supplier.
+      tags:
+        - Deliveries
+      parameters:
+        - name: orderId
+          in: query
+          description: Filter by order identifier.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /invoices:
+    get:
+      operationId: listInvoices
+      summary: List invoices
+      description: >-
+        Retrieves invoice summaries for the authenticated partner
+        or supplier with filtering by date range.
+      tags:
+        - Invoices
+      parameters:
+        - name: startDate
+          in: query
+          description: Filter invoices from this date.
+          schema:
+            type: string
+            format: date
+        - name: endDate
+          in: query
+          description: Filter invoices up to this date.
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Success
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
