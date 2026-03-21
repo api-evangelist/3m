@@ -1,0 +1,20 @@
+aid: 3m
+url: https://raw.githubusercontent.com/api-evangelist/3m/refs/heads/main/apis.yml
+apis:
+  - aid: 3m:partner-supplier-api
+    name: 3M Partner and Supplier API
+    tags:
+      - Manufacturing
+      - Supply Chain
+      - Orders
+      - Product Data
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://api.3m.com
+    humanURL: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/
+    properties:
+      - url: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/api-details/
+        type: Documentation
+      - url: openapi/3m-partner-supplier-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      The 3M Partner and Supplier API provides real-time access to 3M product, pricing, order, delivery, and invoice data for partners and suppliers. The API supports GET and POST operations for product/price lookups, order and delivery tracking, and invoice status queries. Authentication uses OAuth 2.0 bearer tokens with client credentials provided during onboarding.
