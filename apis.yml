@@ -4,9 +4,9 @@ name: 3M
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - Industrial
   - Manufacturing
   - Supply Chain
-  - Industrial
 description: >-
   3M is a global science and manufacturing company. The 3M Partner and Supplier
   API provides real-time access to product, pricing, order, delivery, and invoice
@@ -20,9 +20,9 @@ apis:
     name: 3M Partner and Supplier API
     tags:
       - Manufacturing
-      - Supply Chain
       - Orders
       - Product Data
+      - Supply Chain
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.3m.com
     humanURL: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/

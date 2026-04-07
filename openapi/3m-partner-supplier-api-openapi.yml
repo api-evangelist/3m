@@ -10,14 +10,14 @@ info:
 servers:
   - url: https://api.3m.com
 tags:
-  - name: Products
-    description: Retrieve product and pricing information.
-  - name: Orders
-    description: Submit and track orders.
   - name: Deliveries
     description: Track delivery status and logistics.
   - name: Invoices
     description: Retrieve invoice status and details.
+  - name: Orders
+    description: Submit and track orders.
+  - name: Products
+    description: Retrieve product and pricing information.
 paths:
   /products:
     get:
