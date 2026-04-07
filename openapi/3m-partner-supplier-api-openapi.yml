@@ -22,7 +22,7 @@ paths:
   /products:
     get:
       operationId: listProducts
-      summary: List products
+      summary: 3M List products
       description: >-
         Retrieves a list of 3M products available to partners and suppliers
         with pricing and availability information.
@@ -45,7 +45,7 @@ paths:
   /products/{productId}/price:
     get:
       operationId: getProductPrice
-      summary: Get product price
+      summary: 3M Get product price
       description: >-
         Retrieves the current pricing information for a specific 3M product
         based on the partner agreement.
@@ -64,7 +64,7 @@ paths:
   /orders:
     get:
       operationId: listOrders
-      summary: List orders
+      summary: 3M List orders
       description: >-
         Retrieves a list of orders placed by the authenticated partner
         or supplier with status and tracking information.
@@ -75,7 +75,7 @@ paths:
           description: Success
     post:
       operationId: createOrder
-      summary: Create an order
+      summary: 3M Create an order
       description: >-
         Submits a new order for 3M products on behalf of the authenticated
         partner or supplier.
@@ -105,7 +105,7 @@ paths:
   /deliveries:
     get:
       operationId: listDeliveries
-      summary: List deliveries
+      summary: 3M List deliveries
       description: >-
         Retrieves delivery tracking information for orders placed by
         the authenticated partner or supplier.
@@ -123,7 +123,7 @@ paths:
   /invoices:
     get:
       operationId: listInvoices
-      summary: List invoices
+      summary: 3M List invoices
       description: >-
         Retrieves invoice summaries for the authenticated partner
         or supplier with filtering by date range.
