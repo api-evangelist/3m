@@ -1,0 +1,10 @@
+{
+  "orderId": "ORD-67890",
+  "status": "shipped",
+  "createdAt": "2025-03-15T10:30:00Z",
+  "totalAmount": 499.95,
+  "currency": "USD",
+  "items": [
+    {}
+  ]
+}

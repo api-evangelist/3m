@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/3m/refs/heads/main/json-structure/3m-partner-supplier-api-order-structure.json",
+  "name": "Order",
+  "description": "A purchase order placed with 3M",
+  "type": "object",
+  "properties": {
+    "orderId": {
+      "type": "string",
+      "description": "Unique order identifier",
+      "example": "ORD-67890"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current order status",
+      "enum": [
+        "pending",
+        "processing",
+        "shipped",
+        "delivered",
+        "cancelled"
+      ],
+      "example": "shipped"
+    },
+    "createdAt": {
+      "type": "datetime",
+      "description": "Order creation timestamp",
+      "example": "2025-03-15T10:30:00Z"
+    },
+    "totalAmount": {
+      "type": "double",
+      "description": "Total order value",
+      "example": 499.95
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency code (ISO 4217)",
+      "example": "USD"
+    },
+    "items": {
+      "type": "array",
+      "description": "Line items in the order",
+      "items": {
+        "$ref": "#/components/schemas/OrderItem"
+      }
+    }
+  }
+}

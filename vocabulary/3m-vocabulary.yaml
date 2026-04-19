@@ -1,0 +1,221 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: 3M
+  description: >-
+    Unified taxonomy of the 3M Partner and Supplier API, mapping operational
+    dimensions (products, orders, deliveries, invoices) and capability dimensions
+    (supply chain workflows, personas) into a single reference vocabulary.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: 3M Partner and Supplier API
+      namespace: 3m-partner-supplier
+      version: "1.0"
+      baseUrl: https://api.3m.com
+      status: active
+
+  resources:
+    - name: products
+      description: 3M product catalog with pricing for partners and suppliers
+      api: 3m-partner-supplier
+      actions: [list, get]
+    - name: orders
+      description: Purchase orders placed with 3M
+      api: 3m-partner-supplier
+      actions: [list, create]
+    - name: deliveries
+      description: Delivery tracking records for 3M orders
+      api: 3m-partner-supplier
+      actions: [list]
+    - name: invoices
+      description: Invoices issued by 3M for partner orders
+      api: 3m-partner-supplier
+      actions: [list]
+
+  actions:
+    - name: list
+      http_method: GET
+      pattern: read
+    - name: get
+      http_method: GET
+      pattern: read
+    - name: create
+      http_method: POST
+      pattern: write
+
+  schemas:
+    core:
+      - name: Product
+        description: A 3M product with SKU, pricing, and availability
+      - name: ProductPrice
+        description: Partner-negotiated pricing for a product
+      - name: Order
+        description: A purchase order placed with 3M
+      - name: OrderItem
+        description: A line item within an order
+    logistics:
+      - name: Delivery
+        description: Delivery tracking record with carrier and status
+      - name: ShippingAddress
+        description: Shipping destination address
+    billing:
+      - name: Invoice
+        description: Invoice for a 3M order with payment status
+
+  parameters:
+    pagination:
+      - name: startDate
+        description: Filter records from this date
+      - name: endDate
+        description: Filter records up to this date
+    identifiers:
+      - name: productId
+        description: Unique product identifier
+      - name: orderId
+        description: Unique order identifier
+    filters:
+      - name: category
+        description: Filter products by category
+      - name: sku
+        description: Filter by specific SKU
+      - name: status
+        description: Filter orders by status
+
+  enums:
+    order_status:
+      - pending
+      - processing
+      - shipped
+      - delivered
+      - cancelled
+    delivery_status:
+      - pending
+      - in-transit
+      - out-for-delivery
+      - delivered
+      - exception
+    invoice_status:
+      - unpaid
+      - paid
+      - overdue
+      - disputed
+    product_availability:
+      - in-stock
+      - out-of-stock
+      - limited
+      - discontinued
+
+  authentication:
+    schemes:
+      - name: bearerAuth
+        type: http
+        scheme: bearer
+        bearerFormat: JWT
+
+capability:
+  workflows:
+    - name: 3M Supply Chain Integration
+      file: capabilities/3m-supply-chain-integration.yaml
+      description: End-to-end supply chain workflow for procurement and billing
+      apis:
+        - 3m-partner-supplier
+      tools: 6
+      personas:
+        - Procurement Manager
+        - Supply Chain Analyst
+        - Accounts Payable
+
+  personas:
+    - id: procurement-manager
+      name: Procurement Manager
+      description: Searches products, compares pricing, and submits purchase orders
+      workflows:
+        - 3M Supply Chain Integration
+    - id: supply-chain-analyst
+      name: Supply Chain Analyst
+      description: Tracks order status, monitors deliveries, and analyzes supply chain data
+      workflows:
+        - 3M Supply Chain Integration
+    - id: accounts-payable
+      name: Accounts Payable
+      description: Retrieves invoices and reconciles billing with purchase orders
+      workflows:
+        - 3M Supply Chain Integration
+
+  domains:
+    - name: Product Catalog
+      description: 3M product discovery and pricing
+      resources: [products]
+    - name: Order Management
+      description: Purchase order submission and tracking
+      resources: [orders]
+    - name: Logistics
+      description: Delivery tracking and shipment status
+      resources: [deliveries]
+    - name: Billing
+      description: Invoice retrieval and accounts payable reconciliation
+      resources: [invoices]
+
+  namespaces:
+    consumed:
+      - name: 3m-partner-supplier
+        baseUri: https://api.3m.com
+    rest:
+      - name: 3m-supply-chain-api
+        port: 8080
+    mcp:
+      - name: 3m-supply-chain-mcp
+        port: 9090
+        transport: http
+
+  binds:
+    - name: THREEEM_BEARER_TOKEN
+      description: OAuth 2.0 bearer token for 3M API authentication
+      workflows:
+        - 3M Supply Chain Integration
+
+crossReference:
+  - resource: products
+    operations:
+      - method: GET
+        path: /products
+      - method: GET
+        path: /products/{productId}/price
+    workflows:
+      - 3M Supply Chain Integration
+    personas:
+      - Procurement Manager
+      - Supply Chain Analyst
+
+  - resource: orders
+    operations:
+      - method: GET
+        path: /orders
+      - method: POST
+        path: /orders
+    workflows:
+      - 3M Supply Chain Integration
+    personas:
+      - Procurement Manager
+      - Supply Chain Analyst
+
+  - resource: deliveries
+    operations:
+      - method: GET
+        path: /deliveries
+    workflows:
+      - 3M Supply Chain Integration
+    personas:
+      - Supply Chain Analyst
+
+  - resource: invoices
+    operations:
+      - method: GET
+        path: /invoices
+    workflows:
+      - 3M Supply Chain Integration
+    personas:
+      - Accounts Payable

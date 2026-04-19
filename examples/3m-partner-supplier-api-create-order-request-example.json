@@ -1,0 +1,9 @@
+{
+  "items": [
+    {
+      "productId": "PROD-12345",
+      "quantity": 20
+    }
+  ],
+  "shippingAddress": {}
+}

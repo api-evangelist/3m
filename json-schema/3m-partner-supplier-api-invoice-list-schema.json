@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/3m/refs/heads/main/json-schema/3m-partner-supplier-api-invoice-list-schema.json",
+  "title": "InvoiceList",
+  "description": "List of invoices",
+  "type": "object",
+  "properties": {
+    "invoices": {
+      "type": "array",
+      "description": "Array of invoice records",
+      "items": {
+        "$ref": "#/components/schemas/Invoice"
+      }
+    }
+  }
+}

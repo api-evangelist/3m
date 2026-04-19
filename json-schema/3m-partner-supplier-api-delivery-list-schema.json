@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/3m/refs/heads/main/json-schema/3m-partner-supplier-api-delivery-list-schema.json",
+  "title": "DeliveryList",
+  "description": "List of delivery records",
+  "type": "object",
+  "properties": {
+    "deliveries": {
+      "type": "array",
+      "description": "Array of delivery records",
+      "items": {
+        "$ref": "#/components/schemas/Delivery"
+      }
+    }
+  }
+}

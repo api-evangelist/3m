@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/3m/refs/heads/main/json-structure/3m-partner-supplier-api-order-list-structure.json",
+  "name": "OrderList",
+  "description": "List of orders",
+  "type": "object",
+  "properties": {
+    "orders": {
+      "type": "array",
+      "description": "Array of order records",
+      "items": {
+        "$ref": "#/components/schemas/Order"
+      }
+    }
+  }
+}

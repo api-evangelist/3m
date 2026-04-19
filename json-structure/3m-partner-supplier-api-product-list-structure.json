@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/3m/refs/heads/main/json-structure/3m-partner-supplier-api-product-list-structure.json",
+  "name": "ProductList",
+  "description": "List of 3M products",
+  "type": "object",
+  "properties": {
+    "products": {
+      "type": "array",
+      "description": "Array of product records",
+      "items": {
+        "$ref": "#/components/schemas/Product"
+      }
+    }
+  }
+}

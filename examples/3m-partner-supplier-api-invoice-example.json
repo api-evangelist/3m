@@ -1,0 +1,9 @@
+{
+  "invoiceId": "INV-22222",
+  "orderId": "ORD-67890",
+  "invoiceDate": "2025-03-18",
+  "dueDate": "2025-04-17",
+  "totalAmount": 499.95,
+  "currency": "USD",
+  "status": "unpaid"
+}

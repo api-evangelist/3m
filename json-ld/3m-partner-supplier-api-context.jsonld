@@ -1,0 +1,150 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "threeem": "https://api.3m.com/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Delivery": "threeem:Delivery",
+    "Order": "threeem:Order",
+    "Invoice": "threeem:Invoice",
+    "InvoiceList": "threeem:InvoiceList",
+    "OrderItem": "threeem:OrderItem",
+    "Product": "threeem:Product",
+    "OrderList": "threeem:OrderList",
+    "CreateOrderRequest": "threeem:CreateOrderRequest",
+    "ProductPrice": "threeem:ProductPrice",
+    "DeliveryList": "threeem:DeliveryList",
+    "ProductList": "threeem:ProductList",
+    "ShippingAddress": "threeem:ShippingAddress",
+    "availability": {
+      "@id": "threeem:availability",
+      "@type": "xsd:string"
+    },
+    "carrier": {
+      "@id": "threeem:carrier",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "threeem:category",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "threeem:city",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "threeem:country",
+      "@type": "xsd:string"
+    },
+    "createdAt": {
+      "@id": "threeem:createdAt",
+      "@type": "xsd:dateTime"
+    },
+    "currency": {
+      "@id": "threeem:currency",
+      "@type": "xsd:string"
+    },
+    "deliveries": {
+      "@id": "threeem:deliveries",
+      "@container": "@set"
+    },
+    "deliveryId": {
+      "@id": "threeem:deliveryId",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "dueDate": {
+      "@id": "threeem:dueDate",
+      "@type": "xsd:date"
+    },
+    "effectiveDate": {
+      "@id": "threeem:effectiveDate",
+      "@type": "xsd:date"
+    },
+    "estimatedDelivery": {
+      "@id": "threeem:estimatedDelivery",
+      "@type": "xsd:date"
+    },
+    "expirationDate": {
+      "@id": "threeem:expirationDate",
+      "@type": "xsd:date"
+    },
+    "invoiceDate": {
+      "@id": "threeem:invoiceDate",
+      "@type": "xsd:date"
+    },
+    "invoiceId": {
+      "@id": "threeem:invoiceId",
+      "@type": "xsd:string"
+    },
+    "invoices": {
+      "@id": "threeem:invoices",
+      "@container": "@set"
+    },
+    "items": {
+      "@id": "threeem:items",
+      "@container": "@set"
+    },
+    "name": "schema:name",
+    "orderId": {
+      "@id": "threeem:orderId",
+      "@type": "xsd:string"
+    },
+    "orders": {
+      "@id": "threeem:orders",
+      "@container": "@set"
+    },
+    "pricingTier": {
+      "@id": "threeem:pricingTier",
+      "@type": "xsd:string"
+    },
+    "productId": {
+      "@id": "threeem:productId",
+      "@type": "xsd:string"
+    },
+    "products": {
+      "@id": "threeem:products",
+      "@container": "@set"
+    },
+    "quantity": {
+      "@id": "threeem:quantity",
+      "@type": "xsd:integer"
+    },
+    "shippedAt": {
+      "@id": "threeem:shippedAt",
+      "@type": "xsd:dateTime"
+    },
+    "sku": {
+      "@id": "threeem:sku",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "threeem:state",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "threeem:status",
+      "@type": "xsd:string"
+    },
+    "street": {
+      "@id": "threeem:street",
+      "@type": "xsd:string"
+    },
+    "totalAmount": {
+      "@id": "threeem:totalAmount",
+      "@type": "xsd:decimal"
+    },
+    "trackingNumber": {
+      "@id": "threeem:trackingNumber",
+      "@type": "xsd:string"
+    },
+    "unitPrice": {
+      "@id": "threeem:unitPrice",
+      "@type": "xsd:decimal"
+    },
+    "zip": {
+      "@id": "threeem:zip",
+      "@type": "xsd:string"
+    }
+  }
+}

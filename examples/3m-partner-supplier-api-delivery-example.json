@@ -1,0 +1,9 @@
+{
+  "deliveryId": "DEL-11111",
+  "orderId": "ORD-67890",
+  "carrier": "UPS",
+  "trackingNumber": "1Z999AA10123456784",
+  "status": "in-transit",
+  "estimatedDelivery": "2025-03-20",
+  "shippedAt": "2025-03-17T08:00:00Z"
+}

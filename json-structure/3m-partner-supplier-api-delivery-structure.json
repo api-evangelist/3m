@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/3m/refs/heads/main/json-structure/3m-partner-supplier-api-delivery-structure.json",
+  "name": "Delivery",
+  "description": "Delivery tracking record for an order",
+  "type": "object",
+  "properties": {
+    "deliveryId": {
+      "type": "string",
+      "description": "Unique delivery identifier",
+      "example": "DEL-11111"
+    },
+    "orderId": {
+      "type": "string",
+      "description": "Associated order identifier",
+      "example": "ORD-67890"
+    },
+    "carrier": {
+      "type": "string",
+      "description": "Shipping carrier name",
+      "example": "UPS"
+    },
+    "trackingNumber": {
+      "type": "string",
+      "description": "Carrier tracking number",
+      "example": "1Z999AA10123456784"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current delivery status",
+      "enum": [
+        "pending",
+        "in-transit",
+        "out-for-delivery",
+        "delivered",
+        "exception"
+      ],
+      "example": "in-transit"
+    },
+    "estimatedDelivery": {
+      "type": "date",
+      "description": "Estimated delivery date",
+      "example": "2025-03-20"
+    },
+    "shippedAt": {
+      "type": "datetime",
+      "description": "Timestamp when the shipment was dispatched",
+      "example": "2025-03-17T08:00:00Z"
+    }
+  }
+}

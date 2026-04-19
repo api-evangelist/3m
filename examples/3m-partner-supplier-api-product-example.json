@@ -1,0 +1,10 @@
+{
+  "productId": "PROD-12345",
+  "name": "3M Scotch Heavy Duty Tape",
+  "sku": "SKU-12345",
+  "category": "adhesives",
+  "description": "Heavy duty packaging tape for industrial use",
+  "unitPrice": 24.99,
+  "currency": "USD",
+  "availability": "in-stock"
+}

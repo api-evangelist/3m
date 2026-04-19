@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/3m/refs/heads/main/json-structure/3m-partner-supplier-api-invoice-structure.json",
+  "name": "Invoice",
+  "description": "An invoice issued by 3M for an order",
+  "type": "object",
+  "properties": {
+    "invoiceId": {
+      "type": "string",
+      "description": "Unique invoice identifier",
+      "example": "INV-22222"
+    },
+    "orderId": {
+      "type": "string",
+      "description": "Associated order identifier",
+      "example": "ORD-67890"
+    },
+    "invoiceDate": {
+      "type": "date",
+      "description": "Date the invoice was issued",
+      "example": "2025-03-18"
+    },
+    "dueDate": {
+      "type": "date",
+      "description": "Payment due date",
+      "example": "2025-04-17"
+    },
+    "totalAmount": {
+      "type": "double",
+      "description": "Total invoice amount",
+      "example": 499.95
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency code (ISO 4217)",
+      "example": "USD"
+    },
+    "status": {
+      "type": "string",
+      "description": "Invoice payment status",
+      "enum": [
+        "unpaid",
+        "paid",
+        "overdue",
+        "disputed"
+      ],
+      "example": "unpaid"
+    }
+  }
+}
