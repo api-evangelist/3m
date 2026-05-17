@@ -40,7 +40,7 @@ apis:
       - url: json-schema/3m-partner-supplier-api-invoice-schema.json
         type: JSONSchema
       - url: json-ld/3m-partner-supplier-api-context.jsonld
-        type: JSON-LD
+        type: JSONLD
     description: >-
       The 3M Partner and Supplier API provides real-time access to 3M product,
       pricing, order, delivery, and invoice data for partners and suppliers.
