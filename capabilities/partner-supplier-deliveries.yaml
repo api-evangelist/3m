@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: 3M Partner and Supplier API — Deliveries
+  description: '3M Partner and Supplier API — Deliveries. 1 operations. Lead operation: 3M List Deliveries. Self-contained
+    Naftiko capability covering one 3m business surface.'
+  tags:
+  - 3m
+  - Deliveries
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    3M_API_KEY: 3M_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: partner-supplier-deliveries
+    baseUri: https://api.3m.com
+    description: 3M Partner and Supplier API — Deliveries business capability. Self-contained, no shared references.
+    resources:
+    - name: deliveries
+      path: /deliveries
+      operations:
+      - name: listdeliveries
+        method: GET
+        description: 3M List Deliveries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: orderId
+          in: query
+          type: string
+          description: Filter deliveries by order identifier.
+    authentication:
+      type: bearer
+      token: '{{env.3M_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: partner-supplier-deliveries-rest
+    port: 8080
+    description: REST adapter for 3M Partner and Supplier API — Deliveries. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/deliveries
+      name: deliveries
+      description: REST surface for deliveries.
+      operations:
+      - method: GET
+        name: listdeliveries
+        description: 3M List Deliveries
+        call: partner-supplier-deliveries.listdeliveries
+        with:
+          orderId: rest.orderId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: partner-supplier-deliveries-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for 3M Partner and Supplier API — Deliveries. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: 3m-list-deliveries
+      description: 3M List Deliveries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: partner-supplier-deliveries.listdeliveries
+      with:
+        orderId: tools.orderId
+      outputParameters:
+      - type: object
+        mapping: $.
