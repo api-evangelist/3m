@@ -1,0 +1,176 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "3M Partner and Supplier API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "3M List Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.3m.com/products",
+            "params": [
+              {
+                "name": "category",
+                "value": "adhesives",
+                "type": "query",
+                "description": "Filter products by product category."
+              },
+              {
+                "name": "sku",
+                "value": "SKU-12345",
+                "type": "query",
+                "description": "Filter by specific product SKU."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of 3M products available to partners and suppliers with pricing and availability information."
+        },
+        {
+          "info": {
+            "name": "3M Get Product Price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.3m.com/products/:productId/price",
+            "params": [
+              {
+                "name": "productId",
+                "value": "PROD-12345",
+                "type": "path",
+                "description": "The unique product identifier."
+              }
+            ]
+          },
+          "docs": "Retrieves the current pricing information for a specific 3M product based on the partner agreement and negotiated pricing tiers."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "3M List Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.3m.com/orders",
+            "params": [
+              {
+                "name": "status",
+                "value": "shipped",
+                "type": "query",
+                "description": "Filter orders by status (pending, processing, shipped, delivered, cancelled)."
+              },
+              {
+                "name": "startDate",
+                "value": "2025-01-01",
+                "type": "query",
+                "description": "Filter orders from this date."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of orders placed by the authenticated partner or supplier with status and tracking information."
+        },
+        {
+          "info": {
+            "name": "3M Create an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.3m.com/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submits a new order for 3M products on behalf of the authenticated partner or supplier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Deliveries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "3M List Deliveries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.3m.com/deliveries",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "ORD-67890",
+                "type": "query",
+                "description": "Filter deliveries by order identifier."
+              }
+            ]
+          },
+          "docs": "Retrieves delivery tracking information for orders placed by the authenticated partner or supplier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "3M List Invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.3m.com/invoices",
+            "params": [
+              {
+                "name": "startDate",
+                "value": "2025-01-01",
+                "type": "query",
+                "description": "Filter invoices from this date."
+              },
+              {
+                "name": "endDate",
+                "value": "2025-03-31",
+                "type": "query",
+                "description": "Filter invoices up to this date."
+              }
+            ]
+          },
+          "docs": "Retrieves invoice summaries for the authenticated partner or supplier with filtering by date range."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
