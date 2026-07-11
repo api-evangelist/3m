@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/3m-partner-supplier-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: OAuth 2.0 bearer token obtained through client credentials flow. Provided during
+    onboarding.
+  sources:
+  - openapi/3m-partner-supplier-api-openapi.yml

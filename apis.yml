@@ -47,6 +47,10 @@ apis:
       delivery tracking, and invoice status queries. Authentication uses OAuth 2.0 bearer tokens with client credentials
       provided during onboarding.
 common:
+  - type: DomainSecurity
+    url: security/3m-domain-security.yml
+  - type: Authentication
+    url: authentication/3m-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/3M-Company
   - type: LinkedIn
@@ -101,6 +105,8 @@ common:
         description: Sync invoices with accounting software for automated AP reconciliation
       - name: Supply Chain Platforms
         description: Feed order and delivery data into supply chain visibility platforms
+  - type: Blog
+    url: https://news.3m.com/press-releases?pagetemplate=rss
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
