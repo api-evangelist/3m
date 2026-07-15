@@ -47,6 +47,8 @@ apis:
       delivery tracking, and invoice status queries. Authentication uses OAuth 2.0 bearer tokens with client credentials
       provided during onboarding.
 common:
+  - type: AgenticAccess
+    url: agentic-access/3m-agentic-access.yml
   - type: DomainSecurity
     url: security/3m-domain-security.yml
   - type: Authentication
