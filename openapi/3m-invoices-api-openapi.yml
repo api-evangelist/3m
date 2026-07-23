@@ -1,0 +1,117 @@
+openapi: 3.1.0
+info:
+  title: 3M Partner and Supplier Deliveries Invoices API
+  description: The 3M Partner and Supplier API provides real-time access to 3M product, pricing, order, delivery, and invoice data for partners and suppliers. The API supports GET and POST operations for product/price lookups, order and delivery tracking, and invoice status queries. Authentication uses OAuth 2.0 bearer tokens with client credentials provided during onboarding.
+  version: '1.0'
+servers:
+- url: https://api.3m.com
+  description: Production server
+security:
+- bearerAuth: []
+tags:
+- name: Invoices
+  description: Retrieve invoice status and details for billing reconciliation.
+paths:
+  /invoices:
+    get:
+      operationId: listInvoices
+      summary: 3M List Invoices
+      description: Retrieves invoice summaries for the authenticated partner or supplier with filtering by date range.
+      tags:
+      - Invoices
+      parameters:
+      - name: startDate
+        in: query
+        description: Filter invoices from this date.
+        schema:
+          type: string
+          format: date
+        example: '2025-01-01'
+      - name: endDate
+        in: query
+        description: Filter invoices up to this date.
+        schema:
+          type: string
+          format: date
+        example: '2025-03-31'
+      responses:
+        '200':
+          description: Successful response with invoice list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceList'
+              examples:
+                ListInvoices200Example:
+                  summary: Default listInvoices 200 response
+                  x-microcks-default: true
+                  value:
+                    invoices:
+                    - invoiceId: INV-22222
+                      orderId: ORD-67890
+                      invoiceDate: '2025-03-18'
+                      dueDate: '2025-04-17'
+                      totalAmount: 499.95
+                      currency: USD
+                      status: unpaid
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    InvoiceList:
+      type: object
+      description: List of invoices
+      properties:
+        invoices:
+          type: array
+          description: Array of invoice records
+          items:
+            $ref: '#/components/schemas/Invoice'
+    Invoice:
+      type: object
+      description: An invoice issued by 3M for an order
+      properties:
+        invoiceId:
+          type: string
+          description: Unique invoice identifier
+          example: INV-22222
+        orderId:
+          type: string
+          description: Associated order identifier
+          example: ORD-67890
+        invoiceDate:
+          type: string
+          format: date
+          description: Date the invoice was issued
+          example: '2025-03-18'
+        dueDate:
+          type: string
+          format: date
+          description: Payment due date
+          example: '2025-04-17'
+        totalAmount:
+          type: number
+          description: Total invoice amount
+          example: 499.95
+        currency:
+          type: string
+          description: Currency code (ISO 4217)
+          example: USD
+        status:
+          type: string
+          description: Invoice payment status
+          enum:
+          - unpaid
+          - paid
+          - overdue
+          - disputed
+          example: unpaid
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 bearer token obtained through client credentials flow. Provided during onboarding.

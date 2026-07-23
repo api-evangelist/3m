@@ -1,0 +1,110 @@
+openapi: 3.1.0
+info:
+  title: 3M Partner and Supplier Deliveries API
+  description: The 3M Partner and Supplier API provides real-time access to 3M product, pricing, order, delivery, and invoice data for partners and suppliers. The API supports GET and POST operations for product/price lookups, order and delivery tracking, and invoice status queries. Authentication uses OAuth 2.0 bearer tokens with client credentials provided during onboarding.
+  version: '1.0'
+servers:
+- url: https://api.3m.com
+  description: Production server
+security:
+- bearerAuth: []
+tags:
+- name: Deliveries
+  description: Track delivery status and logistics for partner orders.
+paths:
+  /deliveries:
+    get:
+      operationId: listDeliveries
+      summary: 3M List Deliveries
+      description: Retrieves delivery tracking information for orders placed by the authenticated partner or supplier.
+      tags:
+      - Deliveries
+      parameters:
+      - name: orderId
+        in: query
+        description: Filter deliveries by order identifier.
+        schema:
+          type: string
+        example: ORD-67890
+      responses:
+        '200':
+          description: Successful response with delivery tracking information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryList'
+              examples:
+                ListDeliveries200Example:
+                  summary: Default listDeliveries 200 response
+                  x-microcks-default: true
+                  value:
+                    deliveries:
+                    - deliveryId: DEL-11111
+                      orderId: ORD-67890
+                      carrier: UPS
+                      trackingNumber: 1Z999AA10123456784
+                      status: in-transit
+                      estimatedDelivery: '2025-03-20'
+                      shippedAt: '2025-03-17T08:00:00Z'
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Delivery:
+      type: object
+      description: Delivery tracking record for an order
+      properties:
+        deliveryId:
+          type: string
+          description: Unique delivery identifier
+          example: DEL-11111
+        orderId:
+          type: string
+          description: Associated order identifier
+          example: ORD-67890
+        carrier:
+          type: string
+          description: Shipping carrier name
+          example: UPS
+        trackingNumber:
+          type: string
+          description: Carrier tracking number
+          example: 1Z999AA10123456784
+        status:
+          type: string
+          description: Current delivery status
+          enum:
+          - pending
+          - in-transit
+          - out-for-delivery
+          - delivered
+          - exception
+          example: in-transit
+        estimatedDelivery:
+          type: string
+          format: date
+          description: Estimated delivery date
+          example: '2025-03-20'
+        shippedAt:
+          type: string
+          format: date-time
+          description: Timestamp when the shipment was dispatched
+          example: '2025-03-17T08:00:00Z'
+    DeliveryList:
+      type: object
+      description: List of delivery records
+      properties:
+        deliveries:
+          type: array
+          description: Array of delivery records
+          items:
+            $ref: '#/components/schemas/Delivery'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 bearer token obtained through client credentials flow. Provided during onboarding.
