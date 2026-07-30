@@ -2,7 +2,20 @@ aid: 3m
 url: https://raw.githubusercontent.com/api-evangelist/3m/refs/heads/main/apis.yml
 name: 3M
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/3m.png
 tags:
   - Industrial
   - Manufacturing
@@ -16,36 +29,94 @@ created: '2025-02-08'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: 3m:partner-supplier-api
-    name: 3M Partner and Supplier API
-    tags:
-      - Manufacturing
-      - Orders
-      - Product Data
-      - Supply Chain
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.3m.com
-    humanURL: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/
-    properties:
-      - url: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/api-details/
-        type: Documentation
-      - url: openapi/3m-partner-supplier-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/3m-partner-supplier-api-product-schema.json
-        type: JSONSchema
-      - url: json-schema/3m-partner-supplier-api-order-schema.json
-        type: JSONSchema
-      - url: json-schema/3m-partner-supplier-api-delivery-schema.json
-        type: JSONSchema
-      - url: json-schema/3m-partner-supplier-api-invoice-schema.json
-        type: JSONSchema
-      - url: json-ld/3m-partner-supplier-api-context.jsonld
-        type: JSONLD
-    description: >-
-      The 3M Partner and Supplier API provides real-time access to 3M product, pricing, order, delivery, and invoice
-      data for partners and suppliers. The API supports GET and POST operations for product/price lookups, order and
-      delivery tracking, and invoice status queries. Authentication uses OAuth 2.0 bearer tokens with client credentials
-      provided during onboarding.
+- aid: 3m:3m-deliveries-api
+  name: 3M Deliveries API
+  description: Track delivery status and logistics for partner orders.
+  humanURL: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/
+  baseURL: https://api.3m.com
+  tags:
+  - Deliveries
+  properties:
+  - type: OpenAPI
+    url: openapi/3m-deliveries-api-openapi.yml
+  - type: Documentation
+    url: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/api-details/
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-product-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-order-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-delivery-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-invoice-schema.json
+  - type: JSONLD
+    url: json-ld/3m-partner-supplier-api-context.jsonld
+- aid: 3m:3m-invoices-api
+  name: 3M Invoices API
+  description: Retrieve invoice status and details for billing reconciliation.
+  humanURL: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/
+  baseURL: https://api.3m.com
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/3m-invoices-api-openapi.yml
+  - type: Documentation
+    url: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/api-details/
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-product-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-order-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-delivery-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-invoice-schema.json
+  - type: JSONLD
+    url: json-ld/3m-partner-supplier-api-context.jsonld
+- aid: 3m:3m-orders-api
+  name: 3M Orders API
+  description: Submit and track purchase orders with 3M.
+  humanURL: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/
+  baseURL: https://api.3m.com
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/3m-orders-api-openapi.yml
+  - type: Documentation
+    url: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/api-details/
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-product-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-order-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-delivery-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-invoice-schema.json
+  - type: JSONLD
+    url: json-ld/3m-partner-supplier-api-context.jsonld
+- aid: 3m:3m-products-api
+  name: 3M Products API
+  description: Retrieve product catalog and pricing information.
+  humanURL: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/
+  baseURL: https://api.3m.com
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/3m-products-api-openapi.yml
+  - type: Documentation
+    url: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/api-details/
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-product-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-order-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-delivery-schema.json
+  - type: JSONSchema
+    url: json-schema/3m-partner-supplier-api-invoice-schema.json
+  - type: JSONLD
+    url: json-ld/3m-partner-supplier-api-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/3m-agentic-access.yml
