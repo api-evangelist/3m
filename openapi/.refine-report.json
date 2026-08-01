@@ -1,0 +1,20 @@
+{
+  "provider": "3m",
+  "sources": [
+    "3m-deliveries-api-openapi.yml",
+    "3m-invoices-api-openapi.yml",
+    "3m-orders-api-openapi.yml",
+    "3m-products-api-openapi.yml"
+  ],
+  "outputs": [
+    "3m-deliveries-api-openapi.yml",
+    "3m-invoices-api-openapi.yml",
+    "3m-orders-api-openapi.yml",
+    "3m-products-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
