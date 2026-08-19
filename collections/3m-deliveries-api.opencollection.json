@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "3M Partner and Supplier Deliveries API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deliveries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "3M List Deliveries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.3m.com/deliveries",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "ORD-67890",
+                "type": "query",
+                "description": "Filter deliveries by order identifier."
+              }
+            ]
+          },
+          "docs": "Retrieves delivery tracking information for orders placed by the authenticated partner or supplier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

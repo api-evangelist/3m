@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "3M Partner and Supplier Deliveries Products API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "3M List Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.3m.com/products",
+            "params": [
+              {
+                "name": "category",
+                "value": "adhesives",
+                "type": "query",
+                "description": "Filter products by product category."
+              },
+              {
+                "name": "sku",
+                "value": "SKU-12345",
+                "type": "query",
+                "description": "Filter by specific product SKU."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of 3M products available to partners and suppliers with pricing and availability information."
+        },
+        {
+          "info": {
+            "name": "3M Get Product Price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.3m.com/products/:productId/price",
+            "params": [
+              {
+                "name": "productId",
+                "value": "PROD-12345",
+                "type": "path",
+                "description": "The unique product identifier."
+              }
+            ]
+          },
+          "docs": "Retrieves the current pricing information for a specific 3M product based on the partner agreement and negotiated pricing tiers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

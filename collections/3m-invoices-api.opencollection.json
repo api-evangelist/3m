@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "3M Partner and Supplier Deliveries Invoices API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "3M List Invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.3m.com/invoices",
+            "params": [
+              {
+                "name": "startDate",
+                "value": "2025-01-01",
+                "type": "query",
+                "description": "Filter invoices from this date."
+              },
+              {
+                "name": "endDate",
+                "value": "2025-03-31",
+                "type": "query",
+                "description": "Filter invoices up to this date."
+              }
+            ]
+          },
+          "docs": "Retrieves invoice summaries for the authenticated partner or supplier with filtering by date range."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
