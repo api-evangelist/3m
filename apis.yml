@@ -79,6 +79,8 @@ apis:
   humanURL: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/
   baseURL: https://api.3m.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -101,6 +103,8 @@ apis:
   humanURL: https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/
   baseURL: https://api.3m.com
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
