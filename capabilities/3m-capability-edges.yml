@@ -1,0 +1,33 @@
+slug: 3m
+provider: 3M
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Invoices
+  spec_file: 3m-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.7
+  evidence: GET /invoices  listInvoices; "invoice status queries"
+  reason: Exposes customer-facing invoice records and status from the seller's side, i.e. receivables/invoicing
+    data, not freight billing.
+- tag: Orders
+  spec_file: 3m-orders-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.7
+  evidence: POST /orders  createOrder  3M Create an Order; schemas ShippingAddress, OrderItem
+  reason: Partner order placement and retrieval against a manufacturer — customer order capture and fulfilment
+    orchestration; could also be read as sales order management.

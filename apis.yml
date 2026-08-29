@@ -133,6 +133,9 @@ apis:
   - type: JSONLD
     url: json-ld/3m-partner-supplier-api-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/3m-capability-edges.yml
+    name: 3M Business Capability Map
   - type: AgenticAccess
     url: agentic-access/3m-agentic-access.yml
   - type: DomainSecurity
