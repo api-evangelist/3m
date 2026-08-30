@@ -3,7 +3,7 @@ provider: 3M
 generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
-- Transportation & Logistics
+- Manufacturing & Industrial
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -11,23 +11,36 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 2
+edge_count: 3
 edges:
+- tag: Orders
+  spec_file: 3m-orders-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.75
+  evidence: 'POST /orders  createOrder  3M Create an Order; schemas: ShippingAddress, CreateOrderRequest,
+    Order, OrderItem'
+  reason: Order capture and order status retrieval with shipping address — sales order intake and fulfilment
+    orchestration. Could also be read as sales order management, but fulfilment orchestration fits the
+    shipping/tracking framing.
+- tag: Deliveries
+  spec_file: 3m-deliveries-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.7
+  evidence: 'GET /deliveries  listDeliveries  3M List Deliveries; schemas: Delivery, DeliveryList; "order
+    and delivery tracking"'
+  reason: Delivery tracking for orders placed by partners — order fulfilment/delivery visibility within
+    supply chain. Could arguably be logistics operations; fulfilment is the closer read since deliveries
+    relate to customer orders.
 - tag: Invoices
   spec_file: 3m-invoices-api-openapi.yml
   capability_id: BC-200.30
   capability_id_l1: BC-200
   capability_name: Accounts Receivable Management
   confidence: 0.7
-  evidence: GET /invoices  listInvoices; "invoice status queries"
-  reason: Exposes customer-facing invoice records and status from the seller's side, i.e. receivables/invoicing
-    data, not freight billing.
-- tag: Orders
-  spec_file: 3m-orders-api-openapi.yml
-  capability_id: BC-520.40
-  capability_id_l1: BC-520
-  capability_name: Order Fulfilment Management
-  confidence: 0.7
-  evidence: POST /orders  createOrder  3M Create an Order; schemas ShippingAddress, OrderItem
-  reason: Partner order placement and retrieval against a manufacturer — customer order capture and fulfilment
-    orchestration; could also be read as sales order management.
+  evidence: GET /invoices  listInvoices  3M List Invoices; "invoice status queries"
+  reason: Exposes 3M's outbound customer invoices and their status to partners, which is accounts receivable/customer
+    invoicing data. Only list/status read operations, so confidence moderate.
