@@ -1,7 +1,9 @@
 ---
 title: 3M Selects C3.ai As Strategic AI Software Platform
 url: https://c3.ai/3m-selects-c3-iot-as-strategic-ai-software-platform/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"3M" press release artificial intelligence'
 position: 4
 source: serpapi-google

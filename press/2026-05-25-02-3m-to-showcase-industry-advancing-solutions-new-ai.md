@@ -1,7 +1,9 @@
 ---
 title: 3M to showcase industry-advancing solutions, new AI- ...
 url: https://news.3m.com/2025-12-22-3M-to-showcase-industry-advancing-solutions,-new-AI-powered-innovation-tool-at-CES-2026
-date: '2026-05-25'
+published: '2025-12-22'
+date_basis: url-derived
+harvested: '2026-05-25'
 query: '"3M" press release artificial intelligence'
 position: 2
 source: serpapi-google

@@ -1,7 +1,9 @@
 ---
 title: 3M to debut AI-powered assistant 'Ask 3M' and expanded ...
 url: https://news.3m.com/2025-12-29-3M-to-debut-AI-powered-assistant-Ask-3M-and-expanded-3M-Digital-Materials-Hub-at-CES-2026
-date: '2026-05-25'
+published: '2025-12-29'
+date_basis: url-derived
+harvested: '2026-05-25'
 query: '"3M" press release artificial intelligence'
 position: 1
 source: serpapi-google
