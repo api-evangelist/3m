@@ -143,15 +143,6 @@ components:
           - limited
           - discontinued
           example: in-stock
-    ProductList:
-      type: object
-      description: List of 3M products
-      properties:
-        products:
-          type: array
-          description: Array of product records
-          items:
-            $ref: '#/components/schemas/Product'
     ProductPrice:
       type: object
       description: Pricing information for a specific 3M product
@@ -182,6 +173,15 @@ components:
           format: date
           description: Date when this pricing expires
           example: '2025-12-31'
+    ProductList:
+      type: object
+      description: List of 3M products
+      properties:
+        products:
+          type: array
+          description: Array of product records
+          items:
+            $ref: '#/components/schemas/Product'
   securitySchemes:
     bearerAuth:
       type: http

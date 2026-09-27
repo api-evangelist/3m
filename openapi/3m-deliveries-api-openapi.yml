@@ -53,6 +53,15 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    DeliveryList:
+      type: object
+      description: List of delivery records
+      properties:
+        deliveries:
+          type: array
+          description: Array of delivery records
+          items:
+            $ref: '#/components/schemas/Delivery'
     Delivery:
       type: object
       description: Delivery tracking record for an order
@@ -93,15 +102,6 @@ components:
           format: date-time
           description: Timestamp when the shipment was dispatched
           example: '2025-03-17T08:00:00Z'
-    DeliveryList:
-      type: object
-      description: List of delivery records
-      properties:
-        deliveries:
-          type: array
-          description: Array of delivery records
-          items:
-            $ref: '#/components/schemas/Delivery'
   securitySchemes:
     bearerAuth:
       type: http

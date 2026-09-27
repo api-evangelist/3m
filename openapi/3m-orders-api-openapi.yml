@@ -123,6 +123,15 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    OrderList:
+      type: object
+      description: List of orders
+      properties:
+        orders:
+          type: array
+          description: Array of order records
+          items:
+            $ref: '#/components/schemas/Order'
     Order:
       type: object
       description: A purchase order placed with 3M
@@ -159,29 +168,6 @@ components:
           description: Line items in the order
           items:
             $ref: '#/components/schemas/OrderItem'
-    CreateOrderRequest:
-      type: object
-      description: Request body for creating a new order
-      required:
-      - items
-      - shippingAddress
-      properties:
-        items:
-          type: array
-          description: Line items to order
-          items:
-            type: object
-            properties:
-              productId:
-                type: string
-                description: Product identifier
-                example: PROD-12345
-              quantity:
-                type: integer
-                description: Quantity to order
-                example: 20
-        shippingAddress:
-          $ref: '#/components/schemas/ShippingAddress'
     ShippingAddress:
       type: object
       description: Shipping address for an order
@@ -222,15 +208,29 @@ components:
           type: number
           description: Unit price at time of order
           example: 24.99
-    OrderList:
+    CreateOrderRequest:
       type: object
-      description: List of orders
+      description: Request body for creating a new order
+      required:
+      - items
+      - shippingAddress
       properties:
-        orders:
+        items:
           type: array
-          description: Array of order records
+          description: Line items to order
           items:
-            $ref: '#/components/schemas/Order'
+            type: object
+            properties:
+              productId:
+                type: string
+                description: Product identifier
+                example: PROD-12345
+              quantity:
+                type: integer
+                description: Quantity to order
+                example: 20
+        shippingAddress:
+          $ref: '#/components/schemas/ShippingAddress'
   securitySchemes:
     bearerAuth:
       type: http
