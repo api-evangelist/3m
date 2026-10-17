@@ -102,6 +102,36 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ProductPrice:
+      type: object
+      description: Pricing information for a specific 3M product
+      properties:
+        productId:
+          type: string
+          description: Unique product identifier
+          example: PROD-12345
+        unitPrice:
+          type: number
+          description: Partner-negotiated unit price
+          example: 24.99
+        currency:
+          type: string
+          description: Currency code (ISO 4217)
+          example: USD
+        pricingTier:
+          type: string
+          description: Pricing tier applied to this partner
+          example: partner
+        effectiveDate:
+          type: string
+          format: date
+          description: Date when this pricing becomes effective
+          example: '2025-01-01'
+        expirationDate:
+          type: string
+          format: date
+          description: Date when this pricing expires
+          example: '2025-12-31'
     Product:
       type: object
       description: A 3M product available to partners and suppliers
@@ -143,36 +173,6 @@ components:
           - limited
           - discontinued
           example: in-stock
-    ProductPrice:
-      type: object
-      description: Pricing information for a specific 3M product
-      properties:
-        productId:
-          type: string
-          description: Unique product identifier
-          example: PROD-12345
-        unitPrice:
-          type: number
-          description: Partner-negotiated unit price
-          example: 24.99
-        currency:
-          type: string
-          description: Currency code (ISO 4217)
-          example: USD
-        pricingTier:
-          type: string
-          description: Pricing tier applied to this partner
-          example: partner
-        effectiveDate:
-          type: string
-          format: date
-          description: Date when this pricing becomes effective
-          example: '2025-01-01'
-        expirationDate:
-          type: string
-          format: date
-          description: Date when this pricing expires
-          example: '2025-12-31'
     ProductList:
       type: object
       description: List of 3M products

@@ -61,15 +61,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    InvoiceList:
-      type: object
-      description: List of invoices
-      properties:
-        invoices:
-          type: array
-          description: Array of invoice records
-          items:
-            $ref: '#/components/schemas/Invoice'
     Invoice:
       type: object
       description: An invoice issued by 3M for an order
@@ -109,6 +100,15 @@ components:
           - overdue
           - disputed
           example: unpaid
+    InvoiceList:
+      type: object
+      description: List of invoices
+      properties:
+        invoices:
+          type: array
+          description: Array of invoice records
+          items:
+            $ref: '#/components/schemas/Invoice'
   securitySchemes:
     bearerAuth:
       type: http
