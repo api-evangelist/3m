@@ -1,4 +1,4 @@
-# 3M (3m)
+# 3M
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,66 +66,193 @@
 
 3M is a global science and manufacturing company. The 3M Partner and Supplier API provides real-time access to product, pricing, order, delivery, and invoice data for partners and suppliers, enabling automated commerce and supply chain integration.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/3m/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/3m/refs/heads/main/apis.yml)
+**Areas:** Industrial · Manufacturing · Supply Chain · Fortune 100
 
-## Scope
+## 3M on APIs.io
 
-- **Type:** Index
+Everything profiled for 3M is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/3m/](https://apis.io/providers/3m/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Industrial
-- Manufacturing
-- Supply Chain
+- [3M Deliveries API](https://apis.io/apis/3m/3m-deliveries-api/) — Track delivery status and logistics for partner orders.
+- [3M Invoices API](https://apis.io/apis/3m/3m-invoices-api/) — Retrieve invoice status and details for billing reconciliation.
+- [3M Orders API](https://apis.io/apis/3m/3m-orders-api/) — Submit and track purchase orders with 3M.
+- [3M Products API](https://apis.io/apis/3m/3m-products-api/) — Retrieve product catalog and pricing information.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-08
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### 3M Partner and Supplier API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The 3M Partner and Supplier API provides real-time access to 3M product, pricing, order, delivery, and invoice data for partners and suppliers. The API supports GET and POST operations for product/price lookups, order and delivery tracking, and invoice status queries. Authentication uses OAuth 2.0 bearer tokens with client credentials provided during onboarding.
+- [3M Agentic Access](https://apis.io/agentic-access/3m/3m-agentic-access/)
 
-- **Human URL:** [https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/](https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/)
-- **Base URL:** `https://api.3m.com`
+#### JSON Schema (12)
 
-#### Tags
+The data models the API reads and writes.
 
-- Manufacturing
-- Orders
-- Product Data
-- Supply Chain
+- [CreateOrderRequest](https://apis.io/schemas/3m/3m-partner-supplier-api-create-order-request/)
+- [Delivery](https://apis.io/schemas/3m/3m-partner-supplier-api-delivery/)
+- [DeliveryList](https://apis.io/schemas/3m/3m-partner-supplier-api-delivery-list/)
+- [Invoice](https://apis.io/schemas/3m/3m-partner-supplier-api-invoice/)
+- [InvoiceList](https://apis.io/schemas/3m/3m-partner-supplier-api-invoice-list/)
+- [Order](https://apis.io/schemas/3m/3m-partner-supplier-api-order/)
+- [OrderItem](https://apis.io/schemas/3m/3m-partner-supplier-api-order-item/)
+- [OrderList](https://apis.io/schemas/3m/3m-partner-supplier-api-order-list/)
+- [Product](https://apis.io/schemas/3m/3m-partner-supplier-api-product/)
+- [ProductList](https://apis.io/schemas/3m/3m-partner-supplier-api-product-list/)
+- [ProductPrice](https://apis.io/schemas/3m/3m-partner-supplier-api-product-price/)
+- [ShippingAddress](https://apis.io/schemas/3m/3m-partner-supplier-api-shipping-address/)
 
-#### Properties
+#### JSON Structure (12)
 
-- [Documentation](https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/api-details/)
-- [OpenAPI](openapi/3m-partner-supplier-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/3m-partner-supplier-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/3m-partner-supplier-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/3m-partner-supplier-api-product-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/3m-partner-supplier-api-order-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/3m-partner-supplier-api-delivery-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/3m-partner-supplier-api-invoice-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/3m-partner-supplier-api-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+Data models expressed in JSON Structure.
 
-## Common Properties
+- [3M Partner Supplier Api Create Order Request Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-create-order-request-structure/)
+- [3M Partner Supplier Api Delivery List Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-delivery-list-structure/)
+- [3M Partner Supplier Api Delivery Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-delivery-structure/)
+- [3M Partner Supplier Api Invoice List Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-invoice-list-structure/)
+- [3M Partner Supplier Api Invoice Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-invoice-structure/)
+- [3M Partner Supplier Api Order Item Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-order-item-structure/)
+- [3M Partner Supplier Api Order List Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-order-list-structure/)
+- [3M Partner Supplier Api Order Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-order-structure/)
+- [3M Partner Supplier Api Product List Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-product-list-structure/)
+- [3M Partner Supplier Api Product Price Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-product-price-structure/)
+- [3M Partner Supplier Api Product Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-product-structure/)
+- [3M Partner Supplier Api Shipping Address Structure](https://apis.io/json-structure/3m/3m-partner-supplier-api-shipping-address-structure/)
 
-- [GitHub Organization](https://github.com/3M-Company)
-- [LinkedIn](https://www.linkedin.com/company/3m)
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [3M Partner Supplier Api Context](https://apis.io/jsonld/3m/3m-partner-supplier-api-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [3M Vocabulary](https://apis.io/vocabularies/3m/3m-vocabulary/)
+
+#### Examples (12)
+
+Example requests and responses.
+
+- [3M Partner Supplier Api Create Order Request Example](https://apis.io/examples/3m/3m-partner-supplier-api-create-order-request-example/)
+- [3M Partner Supplier Api Delivery Example](https://apis.io/examples/3m/3m-partner-supplier-api-delivery-example/)
+- [3M Partner Supplier Api Delivery List Example](https://apis.io/examples/3m/3m-partner-supplier-api-delivery-list-example/)
+- [3M Partner Supplier Api Invoice Example](https://apis.io/examples/3m/3m-partner-supplier-api-invoice-example/)
+- [3M Partner Supplier Api Invoice List Example](https://apis.io/examples/3m/3m-partner-supplier-api-invoice-list-example/)
+- [3M Partner Supplier Api Order Example](https://apis.io/examples/3m/3m-partner-supplier-api-order-example/)
+- [3M Partner Supplier Api Order Item Example](https://apis.io/examples/3m/3m-partner-supplier-api-order-item-example/)
+- [3M Partner Supplier Api Order List Example](https://apis.io/examples/3m/3m-partner-supplier-api-order-list-example/)
+- [3M Partner Supplier Api Product Example](https://apis.io/examples/3m/3m-partner-supplier-api-product-example/)
+- [3M Partner Supplier Api Product List Example](https://apis.io/examples/3m/3m-partner-supplier-api-product-list-example/)
+- [3M Partner Supplier Api Product Price Example](https://apis.io/examples/3m/3m-partner-supplier-api-product-price-example/)
+- [3M Partner Supplier Api Shipping Address Example](https://apis.io/examples/3m/3m-partner-supplier-api-shipping-address-example/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [3M Partner and Supplier Deliveries API](https://apis.io/collections/3m/open-3m-deliveries-api/)
+- [3M Partner and Supplier Deliveries Invoices API](https://apis.io/collections/3m/open-3m-invoices-api/)
+- [3M Partner and Supplier Deliveries Orders API](https://apis.io/collections/3m/open-3m-orders-api/)
+- [3M Partner and Supplier API](https://apis.io/collections/3m/open-3m-partner-supplier-api/)
+- [3M Partner and Supplier Deliveries Products API](https://apis.io/collections/3m/open-3m-products-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [3M — jsonschema rules](https://apis.io/rules/3m/3m-jsonschema-spectral-rules/)
+- [3M API Rules](https://apis.io/rules/3m/3m-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [3M Authentication](https://apis.io/security/3m/3m-authentication/)
+- [3M Domain Security](https://apis.io/security/3m/3m-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [3M Plans Pricing](https://apis.io/plans/3m/3m-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [3M Rate Limits](https://apis.io/rate-limits/3m/3m-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [3M Finops](https://apis.io/finops/3m/3m-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.3m.com/)
-- [Portal](https://developer.3m.com/s/)
 - [Documentation](https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/api-details/)
-- [Getting Started](https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/)
-- [Spectral Rules](rules/3m-spectral-rules.yml)
-- [Vocabulary](vocabulary/3m-vocabulary.yaml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Getting started](https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/)
+- [Blog](https://news.3m.com/press-releases?pagetemplate=rss)
+- [GitHub](https://github.com/3M-Company)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 33.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 62.4 |
+| Contract governance | 27.3 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 34.5 |
+| Access clarity | 5.3 |
+
+**Agent readiness 22.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/3m/](https://apis.io/providers/3m/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for 3M: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/3m/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
