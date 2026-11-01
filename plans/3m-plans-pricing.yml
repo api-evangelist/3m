@@ -1,0 +1,62 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: 3M
+providerId: 3m
+created: '2026-05-04'
+# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
+# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
+method: generated
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - Industrial
+  - Manufacturing
+  - Supply Chain
+description: 3M's Partner and Supplier API is a B2B EDI-style integration provided to existing trading
+  partners under their commercial supplier agreement. There is no public developer portal, no pay-as-you-go
+  pricing, and no published API plan tiers. Access and limits are negotiated as part of the partner contract.
+notes: No public developer pricing — placeholder only. Access is gated to existing 3M partners and suppliers
+  via their commercial relationship.
+sources:
+  - https://www.3m.com/3M/en_US/company-us/partners-suppliers/api/
+plans:
+  - id: 3m-partner
+    name: Partner / Supplier Access
+    type: enterprise
+    description: Access granted to existing 3M trading partners under their commercial supplier agreement.
+      No public developer pricing.
+    entries:
+      - label: Partner contract
+        name: partner_contract
+        type: subscription
+        metric: contract
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: contact 3M partner relations
+        userMultiplied: false
+    elements:
+      - name: 3M Partner and Supplier API
+      - name: Real-time product, pricing, order, delivery, and invoice data
+      - name: Access governed by partner agreement
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - negotiated
+  plans:
+  - name: Partner / Supplier Access
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year
